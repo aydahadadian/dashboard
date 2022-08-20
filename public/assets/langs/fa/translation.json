@@ -3,7 +3,15 @@
     "app_title":"داشبورد",
     "dashboard": "داشبورد",
     "search" : "جست و جو کنید",
-    "language" : "فارسی"
+    "language" : "فارسی",
+    "sidebar-title":"متریال داشبورد",
+    "tables" : "جدول ها",
+     "biling":"پرداخت",
+     "rtl":"RTL",
+      "notifications":"پیام ها",
+      "profile":"پروفایل",
+      "sign-in":"ورود",
+      "sign-up":"ثبت نام"
 
    
 }

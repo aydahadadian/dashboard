@@ -1,36 +1,46 @@
-import { AppBar, Box, Container, FormControl, FormHelperText, FormLabel, Icon, IconButton, InputLabel, ListItemIcon, Menu, MenuItem,OutlinedInput,TextField,Typography } from "@mui/material";
+import {  Box, FormControl, Icon, InputLabel, ListItemIcon, MenuItem,OutlinedInput,TextField,Typography } from "@mui/material";
 import { useState,useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import cookies from 'js-cookie'
 import i18next from "i18next";
 import Cookies from "js-cookie";
 import {Home,AccountCircle, Notifications,Settings} from "@mui/icons-material";
+import { makeStyles } from "@material-ui/core/styles";
+import { blueGrey } from "@material-ui/core/colors";
+
+const useStyles = makeStyles(theme => ({
+  wrapper : {
+    display:"flex",
+    justifyContent:"space-between",
+    alignItems:"center",
+    position:"fixed",
+    minWidth: "75vw",
+    maxWidth: "75vw",
+    borderRadius:'5px',
+    padding:'7px 10px',
+    color:blueGrey[800],
+  }
+  
+}));
 
 
-// const Search = styled('div')(({ theme }) => ({
-//     position: 'relative',
-//     borderRadius: theme.shape.borderRadius,
-//     backgroundColor: alpha(theme.palette.common.white, 0.15),
-//     '&:hover': {
-//       backgroundColor: alpha(theme.palette.common.white, 0.25),
-//     },
-//     marginLeft: 0,
-//     width: '100%',
-//     [theme.breakpoints.up('sm')]: {
-//       marginLeft: theme.spacing(1),
-//       width: 'auto',
-//     },
-//   }));
+
 
 const Navbar = () => {
-
+ 
+    const classes = useStyles();
     const { t } = useTranslation();
 
     const currentLanguageCode = Cookies.get('i18next') || 'en';
   
   
-    const [language, setLanguage] = useState('')
+    const [language, setLanguage] = useState('');
+    const [isScrolled,setIsScrolled]=useState(false);
+
+    window.onscroll=()=>{
+
+        setIsScrolled(window.pageYOffset==0 ? false : true);
+    }
   
    
   
@@ -74,12 +84,14 @@ const Navbar = () => {
 
       console.log(language)
   return (
-    <Box  sx={{display:"flex",justifyContent:"space-between",alignItems:"center"}} color="GrayText">
+    <Box height="10vh">
+      <Box className={classes.wrapper} sx={isScrolled !== false && {backgroundColor:'#f9f9f9f7'}}>
 
 
-        <Box  sx={{flexDirection:"column"}}>
-        <Box sx={{display:'flex',flexWrap:'wrap',gap:1,alignItems:'center'}}>
-            <Home /> / 
+        <Box  sx={{flexDirection:"column"}} >
+
+        <Box sx={{display:'flex',flexWrap:'wrap',gap:1,alignItems:'center'}} color="#7e7e7e">
+            <Home fontSize=".9rem" /> / 
         
             <Typography
             variant="h6"
@@ -87,6 +99,7 @@ const Navbar = () => {
           fontWeight='300'
           >{t('dashboard')}</Typography>
             </Box>
+
         <Typography
             variant="h6"
             fontSize='.9rem'
@@ -97,23 +110,22 @@ const Navbar = () => {
 
         </Box>
 
+
         <Box display='flex' alignItems='center'>
         
         {currentLanguageCode === 'en' ?
         
-        <TextField id="outlined-basic" label={t('search')} variant="outlined" size="small" />
+        <TextField id="outlined-basic" label={t('search')} variant="outlined" size="small"  />
          :
          <OutlinedInput placeholder={t('search')} size="small" />
         
       }
         
-       
         <ListItemIcon
-            size="large"
+            size="small"
             edge="end"
             color="inherit"
             aria-label="open drawer"
-            
             sx={{ m: 2 }}
           >
          <Icon>
@@ -140,34 +152,26 @@ const Navbar = () => {
         label={t('language')}
         value={language}
         onChange={handleClick}
-      
       >
  
-        {languages.map((lng)=>
+                  {languages.map((lng)=>
 
                   <MenuItem key={lng.code} value={lng.code} sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
                     <img src={lng.flag} width="20px" />
                      
                     </MenuItem>
         
-        )}
-
-    
+                      )}
 
       </Select>
-      {/* <FormHelperText >English</FormHelperText> */}
-     
-    </FormControl>
 
+
+        </FormControl>
         </Box>
        
 
-  
-{/* <h2>{t('welcome_message')}</h2> */}
-
-
     
-  
+        </Box>
             </Box>
   )
 }
