@@ -11,7 +11,10 @@
       "notifications":"پیام ها",
       "profile":"پروفایل",
       "sign-in":"ورود",
-      "sign-up":"ثبت نام"
+      "sign-up":"ثبت نام",
+      "weather-input":"نام شهر خود را تایپ کنید",
+      "weather-wind-speed":"وزش باد",
+      "Sunrise":"طلوع"
 
    
 }

@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     minWidth: "75vw",
     maxWidth: "75vw",
     borderRadius:'5px',
-    padding:'7px 10px',
+    padding:'7px 0 20px',
     color:blueGrey[800],
   }
   
@@ -84,7 +84,7 @@ const Navbar = () => {
 
       console.log(language)
   return (
-    <Box height="10vh">
+    <Box height="13vh">
       <Box className={classes.wrapper} sx={isScrolled !== false && {backgroundColor:'#f9f9f9f7'}}>
 
 
