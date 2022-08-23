@@ -17,8 +17,12 @@ const useStyles = makeStyles(theme => ({
     minWidth: "75vw",
     maxWidth: "75vw",
     borderRadius:'5px',
-    padding:'7px 0 20px',
+    padding:'7px 5px 20px',
     color:blueGrey[800],
+    zIndex:99
+  },
+  activeNav : {
+    backgroundColor:'#f9f9f9f7'
   }
   
 }));
@@ -55,6 +59,7 @@ const Navbar = () => {
       const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
       
       document.body.dir = currentLanguage.dir || 'ltr';
+     
       document.title = t('app_title')
 
     }, [language, t])
@@ -82,10 +87,10 @@ const Navbar = () => {
      
       ]
 
-      console.log(language)
+    
   return (
     <Box height="13vh">
-      <Box className={classes.wrapper} sx={isScrolled !== false && {backgroundColor:'#f9f9f9f7'}}>
+      <Box className={`${classes.wrapper} ${isScrolled === true && classes.activeNav}`}>
 
 
         <Box  sx={{flexDirection:"column"}} >

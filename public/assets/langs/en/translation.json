@@ -1,10 +1,10 @@
 {
-     "app_title" : "Dashboard",
-    "dashboard": "Dashboard",
-    "search" : "Search here",
-    "language" : "English",
-    "sidebar-title":"Material Dashboard",
-    "tables" : "Tables",
+      "app_title" : "Dashboard",
+      "dashboard": "Dashboard",
+      "search" : "Search here",
+      "language" : "English",
+      "sidebar-title":"Material Dashboard",
+      "tables" : "Tables",
       "biling":"Biling",
       "rtl":"RTL",
       "notifications":"Notifications",
@@ -13,8 +13,42 @@
       "sign-up":"Sign up",
       "weather-input":"type your city name ...",
       "weather-wind-speed":"Wind Speed",
-      "Sunrise":"Sunrise"
-
-
+      "Sunrise":"Sunrise",
    
+      "card-title-1":"Booking",
+      "card-title-2":"Todays Users",
+      "card-title-3":"Revenue",
+      "card-title-4":"Followers",
+      "card-detail-1":"+55% than last week",
+      "card-detail-2":"+3% than last month",
+      "card-detail-3":"+1% than yesterday",
+      "card-detail-4":"Just updated",
+  
+      "chart-title-1":"Website Views",
+      "chart-title-2":"Daily Sales",
+      "chart-title-3":"Completed Tasks",
+      "chart-desc-1-3":"Last Campaign Performance",
+      "chart-desc-2":"(+15%) increase in today sales",
+      "chart-detail-1":"campaign sent 2 days ago",
+      "chart-detail-2":"just updated 4 min ago",
+      "chart-detail-3":"just updated",
+    
+      "projects":"projects",
+      "table-1":"COMPANIES",
+      "table-2":"MEMBERS",
+      "table-3":"BUDGET",
+      "table-4":"COMPLETION",
+
+      "overview-title":"Orders Overview",
+      "overview-desc":"this month",
+      "overview-step-1":"$2400, Design changes",
+      "overview-step-2":"New order #183241221",
+      "overview-step-3":"Server payments for",
+      "overview-step-4-5":"New card added for order",
+
+      "footer-license":"License",
+      "footer-blog":"Blog",
+      "about-us":"About us"
+
+
 }

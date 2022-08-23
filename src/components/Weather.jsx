@@ -52,8 +52,6 @@ const Weather = () => {
     const defaultValue={"id":57751,"city":"Tehran","name":"Tehran","latitude": 35.7,"longitude": 51.416666666};
   
     useEffect(() => {
-
-
    
        if (value !== null){
         getWeatherData(value.longitude,value.latitude)
@@ -76,8 +74,6 @@ const Weather = () => {
 
 
 
-  console.log(weatherData)
-
   return (
     <Card sx={{ maxWidth: 330 }} className={classes.card} color="#fff">
       <CardMedia
@@ -94,9 +90,9 @@ const Weather = () => {
          
            {weatherData?.length !== 0 &&
 
-           <Box className={classes.mainContent}>
+           <Box className={classes.mainContent} sx={{direction: "ltr"}}>
             
-            <Typography variant='h1' component='p' >{weatherData.temp}℃</Typography>
+            <Typography variant='h2' component='p' sx={{direction: "ltr"}}>{weatherData.temp}℃</Typography>
             <div className={classes.weatherContent}>
             <Typography variant='h4' component='div'  >{weatherData.weather.description} </Typography>
             <img
@@ -120,10 +116,10 @@ const Weather = () => {
           
            <Box className={classes.subContent}>
             
-            <Typography variant='h6' component='p' >{weatherData?.city_name}</Typography>
-            <Typography variant='h6' component='p' color='inherit' sx={{marginLeft:'10px'}}>{weatherData?.ob_time}</Typography>
-            {weatherData?.length !== 0 && <Typography variant='h6' component='span' >{t('weather-wind-speed')} :{weatherData?.wind_spd}</Typography>}
-            {weatherData?.length !== 0 && <Typography variant='h6' component='span' >{t('Sunrise')} :{weatherData?.sunrise}</Typography>}
+            <Typography variant='body2' component='p' >{weatherData?.city_name}</Typography>
+            <Typography variant='body2' component='p' color='inherit' sx={{marginLeft:'10px'}}>{weatherData?.ob_time}</Typography>
+            {weatherData?.length !== 0 && <Typography variant='body2' component='span' >{t('weather-wind-speed')} :{weatherData?.wind_spd}</Typography>}
+            {weatherData?.length !== 0 && <Typography variant='body2' component='span' >{t('Sunrise')} :{weatherData?.sunrise}</Typography>}
            
                
             </Box>

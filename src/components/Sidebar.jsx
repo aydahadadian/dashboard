@@ -12,7 +12,6 @@ const useStyles = makeStyles(theme => ({
     background: "linear-gradient(195deg,rgb(66, 66, 74),rgb(25, 25, 25))",
     borderRadius:10,
     height:'90vh',
-    // margin:'0 10px',
     padding: '1rem',
     position:'fixed',
   
@@ -27,6 +26,10 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: "#91919178",
       
   },
+  },
+  activeItem:{
+    backgroundColor:"#2979ff",
+    
   }
 }));
 
@@ -99,13 +102,12 @@ const Sidebar = () => {
  
       <List sx={{boxShadow: '0 -8px 8px -12px #ffffff',pt:2}}>
         {items.map((item, index) => (
-          <ListItem key={index} disablePadding className={classes.item} 
-                    sx={ item.active === true && {backgroundColor:"#2979ff"}}>
+          <ListItem key={index} className={`${classes.item} ${item.active === true && classes.activeItem}`} >
             
-            <ListItemButton >
+            <ListItemButton sx={{padding:0}}>
               <ListItemIcon sx={{color:"whitesmoke",minWidth:'36px'}}>
 
-            {item.icon}
+                {item.icon}
          
               </ListItemIcon>
               <ListItemText primary={item.label}  primaryTypographyProps={{fontSize:'.9rem'}} />

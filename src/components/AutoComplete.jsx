@@ -29,9 +29,6 @@ const AutoComplete = ({value,setValue,label}) => {
  }, [inputValue])
 
 
-
-
- console.log(citiesData)
   return (
     
           <Autocomplete
