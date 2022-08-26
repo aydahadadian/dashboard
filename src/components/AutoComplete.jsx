@@ -7,16 +7,20 @@ import { getCityNamesData } from '../api/cityNamesApi';
 const AutoComplete = ({value,setValue,label}) => {
 
     const [citiesData, setCitiesData] = useState([]);
-    const [inputValue, setInputValue] = useState("");
+    const [inputValue, setInputValue] = useState('');
+    const [loading, setLoading] = useState(false);
 
   
   useEffect(() => {
+
+    setLoading(true)
 
     const delay = setTimeout(() => {
         getCityNamesData(inputValue)
         .then((data)=> {
        
           setCitiesData(data);
+          setLoading(false)
        
         })
       }, 3000);
@@ -35,8 +39,9 @@ const AutoComplete = ({value,setValue,label}) => {
           disablePortal
           id="combo-box-demo"
           color='#fff'
-          options={citiesData}
           sx={{ width: 300 }}
+          options={citiesData !== undefined ? citiesData : []}
+          loading={loading}
           value={value}
           onChange={(event, newValue) => {
             setValue(newValue);
@@ -46,7 +51,8 @@ const AutoComplete = ({value,setValue,label}) => {
           onInputChange={(event, newInputValue) => {
             setInputValue(newInputValue);
           }}
-    
+          
+          isOptionEqualToValue={(option, value) => option.name === value.name}
           getOptionLabel={(option) => option.name || "" }
           renderInput={(params) => <TextField {...params} label={label} sx={{backgroundColor:"#fff"}} />}
   />

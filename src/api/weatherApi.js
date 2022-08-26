@@ -10,7 +10,7 @@ export const getWeatherData = async (lon,lat) => {
     try{
         const {data:{data}} = await axios.get(baseUrl,{
             
-            params: {lon: lon, lat: lat},
+            params: {lat: lat,lon: lon},
             headers: {
             'X-RapidAPI-Key': apiKey,
             'X-RapidAPI-Host': 'weatherbit-v1-mashape.p.rapidapi.com'

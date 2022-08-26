@@ -46,31 +46,30 @@ const Weather = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-    const [value, setValue] = useState({});
+    const [value, setValue] = useState("");
     const[weatherData, setWeatherData] = useState([]);
+    const[coordinate, setCoordinate] = useState({latitude:35.7219,longitude:51.3347});
 
-    const defaultValue={"id":57751,"city":"Tehran","name":"Tehran","latitude": 35.7,"longitude": 51.416666666};
-  
+    
     useEffect(() => {
    
-       if (value !== null){
-        getWeatherData(value.longitude,value.latitude)
+      
+        getWeatherData(coordinate.longitude,coordinate.latitude)
         .then((data)=> {
-
+           data !== undefined &&
           setWeatherData(data[0]);
 
         })
-        
-       }
 
 
-  }, [value])
+  }, [coordinate])
        
 
- useEffect(() => {
-  setValue(defaultValue)
- }, [])
- 
+useEffect(() => {
+  
+  value?.longitude && setCoordinate({latitude:value.latitude,longitude:value.longitude})
+
+}, [value])
 
 
 
