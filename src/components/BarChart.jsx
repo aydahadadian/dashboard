@@ -37,14 +37,17 @@ const BarChart = ({chartData}) => {
       yAxes:{
           grid: {
               color: '#dddddd81',
+              borderDash:[4,6]
           },
           ticks:{
               color: '#ffffff',
+              stepSize:20,
           }
       },
       xAxes: {
           grid: {
               color: '#dddddd81',
+              borderDash:[4,6]
           },
           ticks:{
               color: '#ffffff',

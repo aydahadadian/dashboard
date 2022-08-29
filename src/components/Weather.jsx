@@ -12,6 +12,20 @@ const useStyles = makeStyles(() => ({
     position: 'relative',
     minWidth: 300,
     minHeight: 200,
+    margin:'5px 10px',
+    boxShadow:'0px 6px 22px -12px #000000c9',
+      
+    '&::before':{
+      content:'""',
+      position: 'absolute',
+      top:0,
+      left:0,
+      width:'100%',
+      height: '100%',
+      background: "linear-gradient(180deg,rgb(255, 255, 255),rgb(25, 25, 25))",
+      opacity: '0.2',
+      zIndex:1,
+    }
   
   },
   content: {
@@ -27,18 +41,7 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems:'center',
   },
-  subContent: {
-    position: 'relative',
-    color:'#fff',
-    display:'flex',
-    gap:'40px',
-    width:'100%',
-    height: '5vh',
-    background: "linear-gradient(195deg,rgb(66, 66, 74),rgb(25, 25, 25))",
-    alignItems: 'center',
-    padding: '6px 32px',
-    
-  },
+ 
 }));
 
 const Weather = () => {
@@ -46,15 +49,15 @@ const Weather = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-    const [value, setValue] = useState("");
+    const[value, setValue] = useState("");
     const[weatherData, setWeatherData] = useState([]);
-    const[coordinate, setCoordinate] = useState({latitude:35.7219,longitude:51.3347});
+    const[location, setLocation] = useState({});
 
     
     useEffect(() => {
    
       
-        getWeatherData(coordinate.longitude,coordinate.latitude)
+        getWeatherData(location.longitude,location.latitude)
         .then((data)=> {
            data !== undefined &&
           setWeatherData(data[0]);
@@ -62,16 +65,19 @@ const Weather = () => {
         })
 
 
-  }, [coordinate])
+  }, [location])
        
 
 useEffect(() => {
   
-  value?.longitude && setCoordinate({latitude:value.latitude,longitude:value.longitude})
-
+  if(value?.longitude) {
+   setLocation({latitude:value.latitude,longitude:value.longitude,city:value.city,country:value.country})
+  }else{
+    setLocation({latitude:35.7219,longitude:51.3347,city:'Tehran',country:'Iran'})
+  } 
 }, [value])
 
-
+console.log(value)
 
   return (
     <Card sx={{ maxWidth: 330 }} className={classes.card} color="#fff">
@@ -102,7 +108,7 @@ useEffect(() => {
               </div> 
            
            
-            <Typography variant='body1' component='p'  >{weatherData.timezone}</Typography>
+            <Typography variant='body1' component='p'  >{location.country} / {location.city}</Typography>
 
               
             </Box>
@@ -113,15 +119,7 @@ useEffect(() => {
     
         </Box>
           
-           <Box className={classes.subContent}>
-            
-            <Typography variant='body2' component='p' >{weatherData?.city_name}</Typography>
-            <Typography variant='body2' component='p' color='inherit' sx={{marginLeft:'10px'}}>{weatherData?.ob_time}</Typography>
-            {weatherData?.length !== 0 && <Typography variant='body2' component='span' >{t('weather-wind-speed')} :{weatherData?.wind_spd}</Typography>}
-            {weatherData?.length !== 0 && <Typography variant='body2' component='span' >{t('Sunrise')} :{weatherData?.sunrise}</Typography>}
-           
-               
-            </Box>
+          
               
     </Card>
 

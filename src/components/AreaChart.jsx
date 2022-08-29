@@ -37,17 +37,26 @@ const AreaChart = ({chartData}) => {
     },
     
     scales: {
+     
       yAxes:{
+          
           grid: {
               color: '#dddddd81',
+              borderDash:[4,6]
           },
+
           ticks:{
               color: '#ffffff',
-          }
+              stepSize:400,
+      
+          },
+        
+          
+        
       },
       xAxes: {
           grid: {
-              color: '#dddddd81',
+              display:false
           },
           ticks:{
               color: '#ffffff',
@@ -67,14 +76,20 @@ const AreaChart = ({chartData}) => {
         fill: false,
         label: 'Mobile davices',
         data: chartData.map((d)=>d.data),
-        borderColor: 'rgb(255, 255, 255)',
+        borderColor: 'rgba(255, 255, 255, 0.822)',
+        backgroundColor: 'rgba(255, 255, 255, 0.822)',
+        tension: 0,
+        pointRadius: 3,
+        borderWidth: 4,
+
         
       },
     ],
   };
   return (
-    <Line options={options} data={data} height="100%" />
-  )
+    <Line options={options} data={data} height="65%" width="100%" overFlow="none" />
+     
+    )
 }
 
 export default AreaChart

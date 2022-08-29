@@ -1,9 +1,8 @@
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow,LinearProgress,Box, Typography, IconButton,Menu, MenuItem, Icon } from '@material-ui/core';
-import { Avatar, AvatarGroup, Paper } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow,LinearProgress,Box, Typography, IconButton,Menu, MenuItem, Icon, Tooltip } from '@material-ui/core';
+import { Avatar, AvatarGroup } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
 import {MoreVert,Check } from '@mui/icons-material';
 import { useState } from 'react';
-import { grey } from '@material-ui/core/colors';
 import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles(() => ({
@@ -13,9 +12,10 @@ const useStyles = makeStyles(() => ({
     boxShadow: 'rgb(0 0 0 / 14%) 0rem 0.25rem 1.25rem 0rem, rgb(26 26 26 / 40%) 0rem 0.4375rem 0.625rem -0.3125rem',
     marginTop: '40px',
     transition: '0.3s',
-    padding:'1rem 0',
+    paddingTop:'1rem',
     borderRadius:'15px',
     backgroundColor:"#fff",
+    overflow:'hidden'
     },
   header: {
    display:'flex',
@@ -24,6 +24,22 @@ const useStyles = makeStyles(() => ({
    padding:'1rem',
    backgroundColor:"#fff",
 
+    },
+    avatarContainerCustomize: {
+      flexDirection:'row!important',
+      "& .MuiAvatar-root:last-child":{
+        marginLeft:"-6px!important"
+      },
+
+    },
+    avatarCustomize: {
+      width: '22px!important',
+      height: '22px!important',
+      cursor:'pointer',
+      zIndex:1,
+      '&:hover':{
+        zIndex:2
+      }
     },
     colorPrimary: {
     backgroundColor: '#ececec',
@@ -56,6 +72,9 @@ const useStyles = makeStyles(() => ({
   }
 
     }))
+
+   
+
 const Projects = ({data}) => {
 
     const classes = useStyles();
@@ -141,10 +160,7 @@ const Projects = ({data}) => {
         </TableHead>
         <TableBody>
           {data.map((row) => (
-            <TableRow
-              key={row.id}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
+            <TableRow key={row.id} >
               <TableCell component="th" scope="row">
                 <Box display='flex' alignItems='center'>
                 <img src={row.companiesImg} width="35px" />
@@ -153,9 +169,14 @@ const Projects = ({data}) => {
                </Box>
               </TableCell>
               <TableCell align='inherit'>
-              <AvatarGroup max={4} sx={{flexDirection:'row!important'}}>
+              <AvatarGroup className={classes.avatarContainerCustomize}>
                 {row.members.map((member,index)=>
-                <Avatar key={index} alt='member' src={member.img}  sx={{ width: 24, height: 24 }}/>
+                <Tooltip key={index} title={member.name} arrow> 
+                <Avatar 
+                className={classes.avatarCustomize}
+                alt='member' 
+                src={member.img} />
+                </Tooltip>
                 
                 )}
   

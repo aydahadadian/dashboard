@@ -85,12 +85,12 @@ const OverviewSidebar = () => {
           display: 'none'
        }}}>
          <TimelineSeparator>
-         <TimelineDot sx={{backgroundColor:item.bg}}>
+         <TimelineDot sx={{backgroundColor:item.bg,margin:'0'}}>
             {item.icon}
            </TimelineDot>
-           <TimelineConnector />
+           <TimelineConnector sx={index === 4 && {display:'none'}} />
          </TimelineSeparator>
-         <TimelineContent sx={{ py: '12px', px: 2,textAlign:"inherit" }} >
+         <TimelineContent sx={{ py:0, px: 2,textAlign:"inherit" }} >
            <Typography variant="body2" component="span" display="block">
              {item.title}
            </Typography>

@@ -1,4 +1,4 @@
-import { Box,Card,CardContent, Typography } from "@material-ui/core";
+import { Box,Card,CardContent, Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 import { Equalizer, PersonAdd, Store, Weekend } from "@mui/icons-material";
@@ -26,9 +26,6 @@ import { Equalizer, PersonAdd, Store, Weekend } from "@mui/icons-material";
         overflow:'initial',
         display:'flex',
         flexDirection:'column',
-        // alignItems:'center',
-        // justifyContent:'flex-end',
-        padding:'10px 0'
   
       },
       HeaderContainer: {
@@ -47,6 +44,12 @@ import { Equalizer, PersonAdd, Store, Weekend } from "@mui/icons-material";
       content: {
         color:'rgb(52, 71, 103)',
       },
+      dividerCustomize:{
+        margin: '10px 0px',
+        opacity: '0.25',
+        backgroundImage: "linear-gradient(to right, rgba(52, 71, 103, 0), rgba(52, 71, 103, 0.4), rgba(52, 71, 103, 0)) !important"
+      
+      }
 
     });
 
@@ -111,7 +114,8 @@ const CardContainer = () => {
         <Typography>{item.title}</Typography>
         <Typography variant="h5" component='span'><b>{item.number}</b></Typography>
         </Box>
-        <Box textAlign="left" pt='30px'>
+        <Divider light="true" variant="middle" className={classes.dividerCustomize} />
+        <Box textAlign="left">
         <Typography variant="body2" component='p'>
         {item.details}
         </Typography>

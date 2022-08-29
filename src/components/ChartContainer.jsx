@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
       borderRadius: "15px",
       transition: '0.3s',
       boxShadow: 'rgb(0 0 0 / 14%) 0rem 0.25rem 1.25rem 0rem, rgb(26 26 26 / 40%) 0rem 0.4375rem 0.625rem -0.3125rem',
-      flexGrow:'1',
+      flex:1,
       margin:'10px',
       height:'50vh',
       position: 'relative',
@@ -26,12 +26,12 @@ const useStyles = makeStyles(() => ({
     },
     HeaderContainer: {
      width:'70%',
-     height:'30vh',
+     height:'200px',
      boxShadow:'rgb(0 0 0 / 14%) 0rem 0.25rem 1.25rem 0rem, rgb(26 26 26 / 40%) 0rem 0.4375rem 0.625rem -0.3125rem',
      transform:"scaleX(1.2)",
     position:'absolute',
     bottom:'40%',
-    borderRadius:'5px',
+    borderRadius:'10px',
     display:'flex',
     alignItems:'center',
     padding:'10px',
@@ -48,7 +48,13 @@ const useStyles = makeStyles(() => ({
       display:'flex',
       alignItems:'center',
 
-    }
+    },
+     dividerCustomize:{
+        margin: '10px 0px',
+        opacity: '0.25',
+        backgroundImage: "linear-gradient(to right, rgba(52, 71, 103, 0), rgba(52, 71, 103, 0.4), rgba(52, 71, 103, 0)) !important"
+      
+      }
   }));
 
 const ChartContainer = ({data}) => {
@@ -98,7 +104,8 @@ const ChartContainer = ({data}) => {
       </Box>
       <CardContent className={classes.content}>
               <Typography varient="h6" component='span' color="inherit" fontWeight='900' ><b>{currentData.title}</b></Typography>
-              <Typography varient="body2">{currentData.desc}</Typography>
+              <Typography varient="body2" component="span" display='block'>{currentData.desc}</Typography>
+              <Divider light="true" variant="middle" className={classes.dividerCustomize} />
               <div className={classes.cardFooter}>
                 <AccessTime fontSize='1rem' sx={{px:1}}/>
               <Typography variant="body2" component="span">{currentData.details}</Typography>

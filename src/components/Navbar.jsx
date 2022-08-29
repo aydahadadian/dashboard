@@ -14,12 +14,12 @@ const useStyles = makeStyles(theme => ({
     justifyContent:"space-between",
     alignItems:"center",
     position:"fixed",
-    minWidth: "75vw",
-    maxWidth: "75vw",
+    maxWidth: "73vw",
+    width: "100%",
     borderRadius:'5px',
-    padding:'7px 5px 20px',
+    padding:'7px 10px 20px',
     color:blueGrey[800],
-    zIndex:99
+    zIndex:99,
   },
   activeNav : {
     backgroundColor:'#f9f9f9f7'

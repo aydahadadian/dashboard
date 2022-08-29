@@ -25,11 +25,11 @@ export const chartData = [
             {label:'May',data:'40'},
             {label:'Jun',data:'300'},
             {label:'July',data:'330'},
-            {label:'Aug',data:'500'},
+            {label:'Aug',data:'400'},
             {label:'Sep',data:'350'},
             {label:'Oct',data:'200'},
             {label:'Nov',data:'230'},
-            {label:'Dec',data:'500'},
+            {label:'Dec',data:'390'},
         ]
 
     },
@@ -41,11 +41,11 @@ export const chartData = [
             {label:'May',data:'40'},
             {label:'Jun',data:'300'},
             {label:'July',data:'330'},
-            {label:'Aug',data:'500'},
+            {label:'Aug',data:'400'},
             {label:'Sep',data:'350'},
             {label:'Oct',data:'200'},
             {label:'Nov',data:'230'},
-            {label:'Dec',data:'500'},
+            {label:'Dec',data:'390'},
         ]
 
     }
@@ -65,10 +65,10 @@ export const TabelData = [
        companiesImg:'../assets/images/icons/icon1.svg',
 
        members:[
-        {img:'../assets/images/avatars/image1.jpg'},
-        {img:'../assets/images/avatars/image2.jpg'},
-        {img:'../assets/images/avatars/image3.jpg'},
-        {img:'../assets/images/avatars/image4.jpg'},
+        {name:'Alex Smith',img:'../assets/images/avatars/image1.jpg'},
+        {name:'Romina Hadid',img:'../assets/images/avatars/image2.jpg'},
+        {name:'Jessi Doe',img:'../assets/images/avatars/image3.jpg'},
+        {name:'Ryan Tompson',img:'../assets/images/avatars/image4.jpg'},
        ],
        budget:'14,000',
        rate:50
@@ -79,9 +79,9 @@ export const TabelData = [
        companiesImg:'../assets/images/icons/icon2.svg',
 
        members:[
-        {img:'../assets/images/avatars/image1.jpg'},
-        {img:'../assets/images/avatars/image2.jpg'},
-        {img:'../assets/images/avatars/image3.jpg'},
+         {name:'Alex Smith',img:'../assets/images/avatars/image1.jpg'},
+        {name:'Romina Hadid',img:'../assets/images/avatars/image2.jpg'},
+        {name:'Jessi Doe',img:'../assets/images/avatars/image3.jpg'},
 
        ],
        budget:'3,000',
@@ -93,8 +93,8 @@ export const TabelData = [
        companiesImg:'../assets/images/icons/icon3.svg',
 
        members:[
-        {img:'../assets/images/avatars/image1.jpg'},
-        {img:'../assets/images/avatars/image2.jpg'},
+         {name:'Alex Smith',img:'../assets/images/avatars/image1.jpg'},
+        {name:'Romina Hadid',img:'../assets/images/avatars/image2.jpg'},
 
 
        ],
@@ -107,10 +107,10 @@ export const TabelData = [
        companiesImg:'../assets/images/icons/icon4.svg',
 
        members:[
-        {img:'../assets/images/avatars/image1.jpg'},
-        {img:'../assets/images/avatars/image2.jpg'},
-        {img:'../assets/images/avatars/image3.jpg'},
-        {img:'../assets/images/avatars/image4.jpg'},
+         {name:'Alex Smith',img:'../assets/images/avatars/image1.jpg'},
+        {name:'Romina Hadid',img:'../assets/images/avatars/image2.jpg'},
+        {name:'Jessi Doe',img:'../assets/images/avatars/image3.jpg'},
+        {name:'Ryan Tompson',img:'../assets/images/avatars/image4.jpg'},
 
 
        ],
@@ -123,7 +123,7 @@ export const TabelData = [
        companiesImg:'../assets/images/icons/icon5.svg',
 
        members:[
-        {img:'../assets/images/avatars/image1.jpg'},
+         {name:'Alex Smith',img:'../assets/images/avatars/image1.jpg'},
        ],
        budget:'500',
        rate:30
@@ -134,8 +134,8 @@ export const TabelData = [
        companiesImg:'../assets/images/icons/icon6.svg',
 
        members:[
-        {img:'../assets/images/avatars/image1.jpg'},
-        {img:'../assets/images/avatars/image4.jpg'},
+         {name:'Alex Smith',img:'../assets/images/avatars/image1.jpg'},
+        {name:'Ryan Tompson',img:'../assets/images/avatars/image4.jpg'},
        ],
        budget:'2,000',
        rate:40
