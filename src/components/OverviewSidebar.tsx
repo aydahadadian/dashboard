@@ -21,6 +21,9 @@ const useStyles = makeStyles(() => ({
       }
 
     },
+    lastChild : {
+      display:'none'
+    }
   }))
 const OverviewSidebar = () => {
   const classes = useStyles();
@@ -88,7 +91,7 @@ const OverviewSidebar = () => {
          <TimelineDot sx={{backgroundColor:item.bg,margin:'0'}}>
             {item.icon}
            </TimelineDot>
-           <TimelineConnector sx={index === 4 && {display:'none'}} />
+           <TimelineConnector className={index === 4 ? classes.lastChild : ''} />
          </TimelineSeparator>
          <TimelineContent sx={{ py:0, px: 2,textAlign:"inherit" }} >
            <Typography variant="body2" component="span" display="block">

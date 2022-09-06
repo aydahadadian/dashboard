@@ -21,8 +21,12 @@ import {
   );
   
 
+  interface Props {
 
-const BarChart = ({chartData}) => {
+    chartData: {label:string,data:number}[]
+  }
+
+const BarChart: React.FC<Props> = ({chartData}) => {
 
    const options = {
     responsive: true,

@@ -1,5 +1,5 @@
 import {  Box, FormControl, Icon, InputLabel, ListItemIcon, MenuItem,OutlinedInput,TextField,Typography } from "@mui/material";
-import { useState,useEffect } from "react";
+import React, { useState,useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import i18next from "i18next";
@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 
 
-const Navbar = () => {
+const Navbar : React.FC = () => {
  
     const classes = useStyles();
     const { t } = useTranslation();
@@ -38,12 +38,12 @@ const Navbar = () => {
     const currentLanguageCode = Cookies.get('i18next') || 'en';
   
   
-    const [language, setLanguage] = useState('');
-    const [isScrolled,setIsScrolled]=useState(false);
+    const [language, setLanguage] = useState<string>('');
+    const [isScrolled,setIsScrolled]=useState<boolean>(false);
 
     window.onscroll=()=>{
 
-        setIsScrolled(window.pageYOffset==0 ? false : true);
+        setIsScrolled(window.pageYOffset === 0 ? false : true);
     }
   
    
@@ -58,7 +58,7 @@ const Navbar = () => {
   
       const currentLanguage = languages.find((l) => l.code === currentLanguageCode);
       
-      document.body.dir = currentLanguage.dir || 'ltr';
+      document.body.dir = currentLanguage?.dir || 'ltr';
      
       document.title = t('app_title')
 
@@ -96,7 +96,7 @@ const Navbar = () => {
         <Box  sx={{flexDirection:"column"}} >
 
         <Box sx={{display:'flex',flexWrap:'wrap',gap:1,alignItems:'center'}} color="#7e7e7e">
-            <Home fontSize=".9rem" /> / 
+            <Home /> / 
         
             <Typography
             variant="h6"
@@ -127,8 +127,8 @@ const Navbar = () => {
       }
         
         <ListItemIcon
-            size="small"
-            edge="end"
+            // size="small"
+            // edge="end"
             color="inherit"
             aria-label="open drawer"
             sx={{ m: 2 }}
@@ -162,7 +162,7 @@ const Navbar = () => {
                   {languages.map((lng)=>
 
                   <MenuItem key={lng.code} value={lng.code} sx={{display:'flex',alignItems:'center',justifyContent:'center'}}>
-                    <img src={lng.flag} width="20px" />
+                    <img alt="" src={lng.flag} width="20px" />
                      
                     </MenuItem>
         

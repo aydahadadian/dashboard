@@ -2,10 +2,11 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow,Linear
 import { Avatar, AvatarGroup } from '@mui/material';
 import { makeStyles } from "@material-ui/core/styles";
 import {MoreVert,Check } from '@mui/icons-material';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { tableModel } from '../models/models';
 
-const useStyles = makeStyles(() => ({
+const useStyle = makeStyles ({
   container: {
     margin: '10px',
     flex:'2',
@@ -26,7 +27,7 @@ const useStyles = makeStyles(() => ({
 
     },
     avatarContainerCustomize: {
-      flexDirection:'row!important',
+     
       "& .MuiAvatar-root:last-child":{
         marginLeft:"-6px!important"
       },
@@ -65,31 +66,36 @@ const useStyles = makeStyles(() => ({
 
   },
   root: {
-   
+    minWidth: "45vh",
     "& .MuiTableCell-root": {
       textAlign: "inherit",
   },
   }
 
-    }))
+    });
 
    
+    interface Props {
+      data:tableModel[]
+    }
 
-const Projects = ({data}) => {
+const Projects : React.FC<Props> = ({data}) => {
 
-    const classes = useStyles();
+    const classes = useStyle();
     const {t}=useTranslation();
 
-    const [anchorElNav, setAnchorElNav] = useState('');
+    const [anchorElNav, setAnchorElNav] = useState<any>('');
   
   
-    const handleOpenNavMenu = (event) => {
-      setAnchorElNav(event.currentTarget);
+    const handleOpenNavMenu = (e: React.FormEvent) => {
+      setAnchorElNav(e.currentTarget);
     };
 
     const handleCloseNavMenu = () => {
       setAnchorElNav(null);
     };
+
+   
   
   return (
     <Box className={classes.container}>
@@ -147,7 +153,7 @@ const Projects = ({data}) => {
               </Menu>
         </Box>
     <TableContainer>
-      <Table sx={{ minWidth: "45vh" }} aria-label="simple table" className={classes.root}>
+      <Table aria-label="simple table" className={classes.root}>
     
         <TableHead>
           <TableRow>
@@ -163,13 +169,13 @@ const Projects = ({data}) => {
             <TableRow key={row.id} >
               <TableCell component="th" scope="row">
                 <Box display='flex' alignItems='center'>
-                <img src={row.companiesImg} width="35px" />
+                <img alt="" src={row.companiesImg} width="35px" />
                <Typography variant='body2' ><b>{row.companies}</b></Typography> 
                  
                </Box>
               </TableCell>
               <TableCell align='inherit'>
-              <AvatarGroup className={classes.avatarContainerCustomize}>
+              <AvatarGroup className={classes.avatarContainerCustomize} sx={{flexDirection:'row'}}>
                 {row.members.map((member,index)=>
                 <Tooltip key={index} title={member.name} arrow> 
                 <Avatar 

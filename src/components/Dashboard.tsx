@@ -1,14 +1,15 @@
 import { Grid } from '@mui/material';
-import ChartContainer from './ChartContainer';
 import Navbar from './Navbar';
-import Weather from './Weather';
 import { makeStyles } from "@material-ui/core/styles";
-import { cards, chartData, TabelData } from '../data';
-import CardContainer from './CardContainer';
-import Projects from './Projects';
-import OverviewSidebar from './OverviewSidebar';
+
 import { Box, Typography } from '@material-ui/core';
 import { useTranslation } from 'react-i18next';
+import Weather from './Weather';
+import CardContainer from './CardContainer';
+import ChartContainer from './ChartContainer';
+import Projects from './Projects';
+import { TableData } from '../data';
+import OverviewSidebar from './OverviewSidebar';
 
 const useStyle = makeStyles ({
 
@@ -31,24 +32,15 @@ const Dashboard = () => {
       
     <Navbar />
     <Weather />
-   
-     
-       <CardContainer />
-      
- 
-     <div className={classes.container}>
-      {chartData.map((data,index)=>
-       <ChartContainer key={index} data={data} />
-      
-      )}
-    
+    <CardContainer />
+    <ChartContainer />
 
-     </div>
 
      <div className={classes.container}>
-      <Projects data={TabelData} />
+      <Projects  data={TableData} />
       <OverviewSidebar />
      </div>
+   
     
 <footer>
 
@@ -58,7 +50,7 @@ const Dashboard = () => {
           @2022
           </Box>
 
-          <Box sx={{display:'flex',gap:'3rem'}}>
+          <Box sx={{display:'flex',justifyContent:'space-between',minWidth:'250px'}}>
           
             <Typography variant='body1' component='span' >{t('footer-license')}</Typography>
             <Typography variant='body1' component='span'>{t('footer-blog')}</Typography>
@@ -66,7 +58,7 @@ const Dashboard = () => {
         
         </Box>
           </Box>
-</footer>
+      </footer> 
     </Grid>
   
   )

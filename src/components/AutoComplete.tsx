@@ -2,13 +2,19 @@ import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@mui/material';
 import React, { useEffect, useState } from 'react'
 import { getCityNamesData } from '../api/cityNamesApi';
+import { valueModel } from '../models/models';
 
 
-const AutoComplete = ({value,setValue,label}) => {
+interface Props {
+  value:valueModel | null;
+  setValue: React.Dispatch<React.SetStateAction<valueModel | null>>;
+  label:string;
+}
+const AutoComplete : React.FC<Props> = ({value,setValue,label}) => {
 
     const [citiesData, setCitiesData] = useState([]);
-    const [inputValue, setInputValue] = useState('');
-    const [loading, setLoading] = useState(false);
+    const [inputValue, setInputValue] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
 
   
   useEffect(() => {
@@ -54,7 +60,7 @@ const AutoComplete = ({value,setValue,label}) => {
           
           isOptionEqualToValue={(option, value) => option.name === value.name}
           getOptionLabel={(option) => option.name || "" }
-          renderInput={(params) => <TextField {...params} label={label} sx={{backgroundColor:"#fff"}} />}
+          renderInput={(params) => <TextField {...params} label={label}  />}
   />
 
 

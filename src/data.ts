@@ -7,13 +7,13 @@ export const chartData = [
         id:1,
         type:'bar',
         dataLabels :[
-            {label:'M',data:'60'},
-            {label:'T',data:'20'},
-            {label:'W',data:'10'},
-            {label:'T',data:'25'},
-            {label:'F',data:'50'},
-            {label:'S',data:'10'},
-            {label:'S',data:'40'},
+            {label:'M',data:60},
+            {label:'T',data:20},
+            {label:'W',data:10},
+            {label:'T',data:25},
+            {label:'F',data:50},
+            {label:'S',data:10},
+            {label:'S',data:40},
         ]
 
     },
@@ -21,15 +21,15 @@ export const chartData = [
         id:2,
         type:'area',
         dataLabels :[
-            {label:'Apr',data:'50'},
-            {label:'May',data:'40'},
-            {label:'Jun',data:'300'},
-            {label:'July',data:'330'},
-            {label:'Aug',data:'400'},
-            {label:'Sep',data:'350'},
-            {label:'Oct',data:'200'},
-            {label:'Nov',data:'230'},
-            {label:'Dec',data:'390'},
+            {label:'Apr',data:50},
+            {label:'May',data:40},
+            {label:'Jun',data:300},
+            {label:'July',data:330},
+            {label:'Aug',data:400},
+            {label:'Sep',data:350},
+            {label:'Oct',data:200},
+            {label:'Nov',data:230},
+            {label:'Dec',data:390},
         ]
 
     },
@@ -37,15 +37,15 @@ export const chartData = [
         id:3,
         type:'area',
         dataLabels :[
-            {label:'Apr',data:'50'},
-            {label:'May',data:'40'},
-            {label:'Jun',data:'300'},
-            {label:'July',data:'330'},
-            {label:'Aug',data:'400'},
-            {label:'Sep',data:'350'},
-            {label:'Oct',data:'200'},
-            {label:'Nov',data:'230'},
-            {label:'Dec',data:'390'},
+            {label:'Apr',data:50},
+            {label:'May',data:40},
+            {label:'Jun',data:300},
+            {label:'July',data:330},
+            {label:'Aug',data:400},
+            {label:'Sep',data:350},
+            {label:'Oct',data:200},
+            {label:'Nov',data:230},
+            {label:'Dec',data:390},
         ]
 
     }
@@ -57,7 +57,7 @@ export const chartData = [
 
 
 
-export const TabelData = [
+export const TableData = [
 
     {
        id:1,

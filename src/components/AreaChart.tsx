@@ -10,7 +10,7 @@ import {
     Legend,
   } from 'chart.js';
   import { Line } from 'react-chartjs-2';
-  
+
   
   ChartJS.register(
     CategoryScale,
@@ -23,15 +23,17 @@ import {
     Legend
   );
   
- 
+  interface Props {
+
+    chartData: {label:string,data:number}[]
+  }
   
-const AreaChart = ({chartData}) => {
+const AreaChart : React.FC<Props> = ({chartData}) => {
 
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        
         display:false
       },
     },
@@ -87,7 +89,7 @@ const AreaChart = ({chartData}) => {
     ],
   };
   return (
-    <Line options={options} data={data} height="65%" width="100%" overFlow="none" />
+    <Line options={options} data={data} height="65%" width="100%" />
      
     )
 }

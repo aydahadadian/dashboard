@@ -30,13 +30,16 @@ i18n
   
   });
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+  const root = ReactDOM.createRoot(
+    document.getElementById('root') as HTMLElement
+  );
+  
 root.render(
 
 <Suspense fallback={<CircularProgress />}>
 <App />
-</Suspense>
 
+</Suspense>
   
 
 );

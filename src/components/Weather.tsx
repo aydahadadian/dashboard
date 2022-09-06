@@ -2,18 +2,20 @@ import { Box, Card, CardMedia, makeStyles, Typography } from '@material-ui/core'
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { getWeatherData } from '../api/weatherApi';
+import { locationModel, valueModel } from '../models/models';
 import AutoComplete from './AutoComplete';
 
 
 const useStyles = makeStyles(() => ({
   card: {
     borderRadius: '1rem',
-    boxShadow: 'none',
+    // boxShadow: 'none',
     position: 'relative',
     minWidth: 300,
     minHeight: 200,
     margin:'5px 10px',
-    boxShadow:'0px 6px 22px -12px #000000c9',
+    boxShadow:'0 6px 22px -12px #000000c9',
+
       
     '&::before':{
       content:'""',
@@ -28,6 +30,10 @@ const useStyles = makeStyles(() => ({
     }
   
   },
+  wrapper: {
+    objectFit:'cover',
+    hegiht:'200px'
+  },
   content: {
     position: 'absolute',
     zIndex: 2,
@@ -41,6 +47,9 @@ const useStyles = makeStyles(() => ({
     display: 'flex',
     alignItems:'center',
   },
+  direction:{
+    direction: "ltr"
+  }
  
 }));
 
@@ -49,15 +58,16 @@ const Weather = () => {
   const classes = useStyles();
   const { t } = useTranslation();
 
-    const[value, setValue] = useState("");
-    const[weatherData, setWeatherData] = useState([]);
-    const[location, setLocation] = useState({});
+    const[value, setValue] = useState<valueModel | null>(null);
+    const[weatherData, setWeatherData] = useState<any>([]);
+    const[location, setLocation] = useState<locationModel | null>(null);
 
     
     useEffect(() => {
-   
-      
-        getWeatherData(location.longitude,location.latitude)
+        
+
+        
+        getWeatherData(location?.longitude,location?.latitude)
         .then((data)=> {
            data !== undefined &&
           setWeatherData(data[0]);
@@ -77,17 +87,17 @@ useEffect(() => {
   } 
 }, [value])
 
-console.log(value)
+
 
   return (
-    <Card sx={{ maxWidth: 330 }} className={classes.card} color="#fff">
+    <Card className={classes.card} color="#fff">
       <CardMedia
         component="img"
         height="200"
         image="../assets/images/billy-huynh-v9bnfMCyKbg-unsplash.jpg"
         alt="Weather"
-        sx={{objectFit:'cover'}}
-
+        className={classes.wrapper}
+       
       />
 
 <Box py={2} px={2} className={classes.content}>
@@ -95,9 +105,9 @@ console.log(value)
          
            {weatherData?.length !== 0 &&
 
-           <Box className={classes.mainContent} sx={{direction: "ltr"}}>
+           <Box className={classes.direction}>
             
-            <Typography variant='h2' component='p' sx={{direction: "ltr"}}>{weatherData.temp}℃</Typography>
+            <Typography variant='h2' component='p' className={classes.direction}>{weatherData.temp}℃</Typography>
             <div className={classes.weatherContent}>
             <Typography variant='h4' component='div'  >{weatherData.weather.description} </Typography>
             <img
@@ -108,7 +118,7 @@ console.log(value)
               </div> 
            
            
-            <Typography variant='body1' component='p'  >{location.country} / {location.city}</Typography>
+            <Typography variant='body1' component='p'  >{location?.country} / {location?.city}</Typography>
 
               
             </Box>

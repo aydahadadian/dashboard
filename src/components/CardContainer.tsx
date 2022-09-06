@@ -1,8 +1,7 @@
-import { Box,Card,CardContent, Divider, Typography } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useTranslation } from "react-i18next";
 import { Equalizer, PersonAdd, Store, Weekend } from "@mui/icons-material";
-
+import SingleCard from "./SingleCard";
 
   const useStyles = makeStyles ({
 
@@ -17,7 +16,7 @@ import { Equalizer, PersonAdd, Store, Weekend } from "@mui/icons-material";
         borderRadius: "15px",
         transition: '0.3s',
         boxShadow: 'rgb(0 0 0 / 14%) 0rem 0.25rem 1.25rem 0rem, rgb(26 26 26 / 40%) 0rem 0.4375rem 0.625rem -0.3125rem',
-        flexGrow:'1',
+        flexGrow:1,
         width:'20%',
         margin:'10px',
         height:'20vh',
@@ -55,7 +54,8 @@ import { Equalizer, PersonAdd, Store, Weekend } from "@mui/icons-material";
 
 
 
-const CardContainer = () => {
+
+const CardContainer : React.FC = () => {
    
   const classes = useStyles();
   const {t} = useTranslation();
@@ -93,36 +93,14 @@ const CardContainer = () => {
     },
     
     
-]
+] as const ;
 
 
     return (
       <div className={classes.container}>
 
      {cardsData.map((item,index)=>
-      <Card key={index} className={classes.wrapper}>
-        <Box
-        className={classes.HeaderContainer}
-        component='div'
-        sx={{background:item.bg}}
-      >
-        {item.icon}
-      </Box>
-
-      <CardContent className={classes.content}>
-        <Box textAlign="right">
-        <Typography>{item.title}</Typography>
-        <Typography variant="h5" component='span'><b>{item.number}</b></Typography>
-        </Box>
-        <Divider light="true" variant="middle" className={classes.dividerCustomize} />
-        <Box textAlign="left">
-        <Typography variant="body2" component='p'>
-        {item.details}
-        </Typography>
-        </Box>
-      </CardContent>
-      
-        </Card>
+     <SingleCard key={index} item={item}/>
         )}
         </div>
   )
